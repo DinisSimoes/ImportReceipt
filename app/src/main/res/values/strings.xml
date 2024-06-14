@@ -1,0 +1,4 @@
+<resources>
+    <string name="app_name">ImportDataReceipt</string>
+    <string name="btn_import_receipt_txt">Tirar Foto</string>
+</resources>
