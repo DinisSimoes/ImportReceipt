@@ -2,6 +2,7 @@ package com.example.importdatareceipt
 
 import android.os.Bundle
 import android.util.Log
+import android.widget.EditText
 import android.widget.TableLayout
 import android.widget.TableRow
 import android.widget.TextView
@@ -26,21 +27,32 @@ class activity_verify_results : AppCompatActivity() {
 //        }
     var tabela: TableLayout = findViewById(R.id.tableResults);
 
-    data class Line(val column: String, val valor: String)
+    data class Line(val item: String, val qtd: String, val valor: String)
 
 
     val lines = listOf(
-        Line("Item 1", "Valor 1"),
-        Line("Item 2", "Valor 2"),
-        Line("Item 3", "Valor 3")
+        Line("Item 1", "1", "Valor 1"),
+        Line("Item 2", "2", "Valor 2"),
+        Line("Item 3", "3", "Valor 3"),
     )
 
         for (line in lines) {
             val row = TableRow(this)
-                val tv: TextView = TextView(this)
-                tv.setText("${line.column}")
-                tv.setPadding(10,10,10,10)
-                row.addView(tv)
+
+            val itemText = EditText(this)
+            itemText.setText(line.item)
+            itemText.setPadding(10, 10, 10, 10)
+            row.addView(itemText)
+
+            val qtdText = EditText(this)
+            qtdText.setText(line.qtd)
+            qtdText.setPadding(10, 10, 10, 10)
+            row.addView(qtdText)
+
+            val valorText = EditText(this)
+            valorText.setText(line.valor)
+            valorText.setPadding(10, 10, 10, 10)
+            row.addView(valorText)
 
             tabela.addView(row)
         }
